@@ -27,19 +27,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ***************************************************************************/
-
-/* Optimization type */
-#define RO  0 // Resource Optimized (8-pixel implementation)
-#define NO  1 // Normal Operation (1-pixel implementation)
+#define RO 0
+#define NO 1
 
 
-#define GRAY 1
+#define FILTER_WIDTH 3
 
-#define FILTER_SIZE 3
+#define L1NORM 1
+#define L2NORM 0
 
-#define KERNEL_SHAPE XF_SHAPE_CROSS
-
-#define ITERATIONS 1
-
-
-
+//#define XF_USE_URAM false
