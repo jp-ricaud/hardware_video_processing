@@ -78,6 +78,15 @@ end entity pix_threshold_wrp;
 
 architecture behav of pix_threshold_wrp is
 
+  ------------------------------------------------------------------------------
+  -- Attributes
+  ------------------------------------------------------------------------------
+  attribute PERIOD : string;
+  attribute PERIOD of clk : signal is "4 ns";
+
+  attribute BUFFER_TYPE : string;
+  attribute BUFFER_TYPE of clk : signal is "BUFG";
+
   ----------------------------------------------------------------------------
   -- Constants
   ----------------------------------------------------------------------------

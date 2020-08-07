@@ -39,19 +39,19 @@ entity control_registers is
     MemTrafficGen_en      : out std_logic;
     UserOutput_ctrl       : out std_logic_vector( 15 downto 0);
     UserOutput_status     : in  std_logic_vector(  7 downto 0);
-    StandardIoSet1_status   : in  std_logic_vector(  9 downto 0);
-    StandardIoSet2_status   : in  std_logic_vector(  9 downto 0);
-    ModuleIoSet_status      : in  std_logic_vector( 39 downto 0);
+    StandardIoSet1_status : in  std_logic_vector(  9 downto 0);
+    StandardIoSet2_status : in  std_logic_vector(  9 downto 0);
+    ModuleIoSet_status    : in  std_logic_vector( 39 downto 0);
     Frame2Line_bypass     : out std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
     MementoEvent_en       : out std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
     MementoEvent_arg0     : out std_logic_vector(NB_OF_DEVICES*32 - 1 downto 0);
     PixelLut_bypass       : out std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
-    PixelLut_coef_start     : out std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
+    PixelLut_coef_start   : out std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
     PixelLut_coef_vld     : out std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
-    PixelLut_coef       : out std_logic_vector(NB_OF_DEVICES*8  - 1 downto 0);
-    PixelLut_coef_done      : in  std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
-    PixelThreshold_bypass   : out std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
-    PixelThreshold_level    : out std_logic_vector(NB_OF_DEVICES*8  - 1 downto 0)
+    PixelLut_coef         : out std_logic_vector(NB_OF_DEVICES*8  - 1 downto 0);
+    PixelLut_coef_done    : in  std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
+    PixelThreshold_bypass : out std_logic_vector(NB_OF_DEVICES    - 1 downto 0);
+    PixelThreshold_level  : out std_logic_vector(NB_OF_DEVICES*8  - 1 downto 0)
   );
 end entity control_registers;
 
@@ -61,9 +61,9 @@ architecture behav of control_registers is
   -- Constants
   ----------------------------------------------------------------------------
   -- Common addresses
-  constant ADDR_SCRATCHPAD    : std_logic_vector(15 downto 0) := x"0000";
+  constant ADDR_SCRATCHPAD      : std_logic_vector(15 downto 0) := x"0000";
   constant ADDR_MEMTRAFFICGEN   : std_logic_vector(15 downto 0) := x"0001";
-  constant ADDR_USEROUTCTRL   : std_logic_vector(15 downto 0) := x"0002";
+  constant ADDR_USEROUTCTRL     : std_logic_vector(15 downto 0) := x"0002";
   constant ADDR_USEROUTSTATUS   : std_logic_vector(15 downto 0) := x"0003";
   constant ADDR_IOSET1STATUS    : std_logic_vector(15 downto 0) := x"0004";
   constant ADDR_IOSET2STATUS    : std_logic_vector(15 downto 0) := x"0005";
@@ -73,7 +73,7 @@ architecture behav of control_registers is
   -- Channel (n) addresses
   -- Address = Offset + 1000h + (n)*100h
   -- Obs.: "n" is the device/pipeline channel
-  constant ADDR_FRAME2LINE    : std_logic_vector(7 downto 0) := x"00";
+  constant ADDR_FRAME2LINE      : std_logic_vector(7 downto 0) := x"00";
   constant ADDR_MEMENTOEVENT    : std_logic_vector(7 downto 0) := x"01";
   constant ADDR_PIXELLUT        : std_logic_vector(7 downto 0) := x"02";
   constant ADDR_PIXELLUTCOEF    : std_logic_vector(7 downto 0) := x"03";
