@@ -110,10 +110,10 @@ architecture behav of pix_threshold_wrp is
   ----------------------------------------------------------------------------
   -- Signals
   ----------------------------------------------------------------------------
-  signal reset_n        : std_logic;
-  signal reset_n_s      : std_logic_vector(5 downto 0) := (others => '0');
+  signal reset_n           : std_logic;
+  signal reset_n_s         : std_logic_vector(5 downto 0) := (others => '0');
 
-  signal s_axis_tready_i  : std_logic;
+  signal s_axis_tready_i   : std_logic;
 
   signal pixth_start       : std_logic;
   signal pixth_tvalid      : std_logic;

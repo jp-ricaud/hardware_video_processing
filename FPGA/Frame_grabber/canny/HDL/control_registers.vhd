@@ -24,14 +24,14 @@ use ieee.numeric_std.all;
 
 entity control_registers is
   generic (
-    NB_OF_DEVICES       : natural := 1
+    NB_OF_DEVICES         : natural := 1
   );
   port (
     -- Clock / Reset
-    clk             : in  std_logic;
-    srst            : in  std_logic;
+    clk                   : in  std_logic;
+    srst                  : in  std_logic;
     -- Control Interface
-    s_ctrl_addr         : in  std_logic_vector(15 downto 0);
+    s_ctrl_addr           : in  std_logic_vector(15 downto 0);
     s_ctrl_data_wr_en     : in  std_logic;
     s_ctrl_data_wr        : in  std_logic_vector(31 downto 0);
     s_ctrl_data_rd        : out std_logic_vector(31 downto 0);
@@ -61,23 +61,23 @@ architecture behav of control_registers is
   -- Constants
   ----------------------------------------------------------------------------
   -- Common addresses
-  constant ADDR_SCRATCHPAD      : std_logic_vector(15 downto 0) := x"0000";
-  constant ADDR_MEMTRAFFICGEN   : std_logic_vector(15 downto 0) := x"0001";
-  constant ADDR_USEROUTCTRL     : std_logic_vector(15 downto 0) := x"0002";
-  constant ADDR_USEROUTSTATUS   : std_logic_vector(15 downto 0) := x"0003";
-  constant ADDR_IOSET1STATUS    : std_logic_vector(15 downto 0) := x"0004";
-  constant ADDR_IOSET2STATUS    : std_logic_vector(15 downto 0) := x"0005";
-  constant ADDR_MIOSETASTATUS   : std_logic_vector(15 downto 0) := x"0006";
-  constant ADDR_MIOSETBSTATUS   : std_logic_vector(15 downto 0) := x"0007";
+  constant ADDR_SCRATCHPAD     : std_logic_vector(15 downto 0) := x"0000";
+  constant ADDR_MEMTRAFFICGEN  : std_logic_vector(15 downto 0) := x"0001";
+  constant ADDR_USEROUTCTRL    : std_logic_vector(15 downto 0) := x"0002";
+  constant ADDR_USEROUTSTATUS  : std_logic_vector(15 downto 0) := x"0003";
+  constant ADDR_IOSET1STATUS   : std_logic_vector(15 downto 0) := x"0004";
+  constant ADDR_IOSET2STATUS   : std_logic_vector(15 downto 0) := x"0005";
+  constant ADDR_MIOSETASTATUS  : std_logic_vector(15 downto 0) := x"0006";
+  constant ADDR_MIOSETBSTATUS  : std_logic_vector(15 downto 0) := x"0007";
 
   -- Channel (n) addresses
   -- Address = Offset + 1000h + (n)*100h
   -- Obs.: "n" is the device/pipeline channel
-  constant ADDR_FRAME2LINE      : std_logic_vector(7 downto 0) := x"00";
-  constant ADDR_MEMENTOEVENT    : std_logic_vector(7 downto 0) := x"01";
-  constant ADDR_PIXELLUT        : std_logic_vector(7 downto 0) := x"02";
-  constant ADDR_PIXELLUTCOEF    : std_logic_vector(7 downto 0) := x"03";
-  constant ADDR_PIXELTHRESHOLD  : std_logic_vector(7 downto 0) := x"04";
+  constant ADDR_FRAME2LINE     : std_logic_vector(7 downto 0) := x"00";
+  constant ADDR_MEMENTOEVENT   : std_logic_vector(7 downto 0) := x"01";
+  constant ADDR_PIXELLUT       : std_logic_vector(7 downto 0) := x"02";
+  constant ADDR_PIXELLUTCOEF   : std_logic_vector(7 downto 0) := x"03";
+  constant ADDR_PIXELTHRESHOLD : std_logic_vector(7 downto 0) := x"04";
 
 
   ----------------------------------------------------------------------------
