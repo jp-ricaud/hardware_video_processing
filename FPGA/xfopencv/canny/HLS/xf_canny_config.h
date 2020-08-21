@@ -12,8 +12,8 @@
 #include "imgproc/xf_edge_tracing.hpp"
 #include "xf_config_params.h"
 
-#define WIDTH 1920
-#define HEIGHT 1080
+#define WIDTH 4096
+#define HEIGHT 2168
 
 #if NO
 #define INTYPE XF_NPPC1

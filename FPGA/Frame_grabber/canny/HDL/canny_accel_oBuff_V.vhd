@@ -11,8 +11,8 @@ entity canny_accel_oBuff_V_ram is
     generic(
             MEM_TYPE    : string := "block"; 
             DWIDTH     : integer := 64; 
-            AWIDTH     : integer := 6; 
-            MEM_SIZE    : integer := 60
+            AWIDTH     : integer := 7; 
+            MEM_SIZE    : integer := 128
     ); 
     port (
           addr0     : in std_logic_vector(AWIDTH-1 downto 0); 
@@ -35,9 +35,21 @@ attribute syn_ramstyle : string;
 attribute syn_ramstyle of ram : variable is "block_ram";
 attribute ram_style : string;
 attribute ram_style of ram : variable is MEM_TYPE;
+signal q0_t0 : std_logic_vector(DWIDTH-1 downto 0);
+signal q0_t1 : std_logic_vector(DWIDTH-1 downto 0);
 
 begin 
 
+q0 <= q0_t1;
+
+p_IO_pipeline_reg : process (clk)  
+begin
+    if (clk'event and clk = '1') then
+      if (ce0 = '1') then
+        q0_t1 <= q0_t0;
+      end if;
+    end if;
+end process;
 
 memory_access_guard_0: process (addr0) 
 begin
@@ -58,7 +70,7 @@ begin
             if (we0 = '1') then 
                 ram(CONV_INTEGER(addr0_tmp)) := d0; 
             end if;
-            q0 <= ram(CONV_INTEGER(addr0_tmp)); 
+            q0_t0 <= ram(CONV_INTEGER(addr0_tmp)); 
         end if;
     end if;
 end process;
@@ -72,8 +84,8 @@ use IEEE.std_logic_1164.all;
 entity canny_accel_oBuff_V is
     generic (
         DataWidth : INTEGER := 64;
-        AddressRange : INTEGER := 60;
-        AddressWidth : INTEGER := 6);
+        AddressRange : INTEGER := 128;
+        AddressWidth : INTEGER := 7);
     port (
         reset : IN STD_LOGIC;
         clk : IN STD_LOGIC;

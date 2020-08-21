@@ -45,26 +45,26 @@ architecture behav of Canny is
     attribute fsm_encoding of ap_CS_fsm : signal is "none";
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
-    signal trunc_ln262_fu_90_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal trunc_ln262_reg_110 : STD_LOGIC_VECTOR (15 downto 0);
-    signal trunc_ln262_1_fu_95_p1 : STD_LOGIC_VECTOR (15 downto 0);
-    signal trunc_ln262_1_reg_115 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_xFCannyKernel_fu_76_p_src_mat_data_V_read : STD_LOGIC;
-    signal grp_xFCannyKernel_fu_76_p_dst_mat_data_V_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal grp_xFCannyKernel_fu_76_p_dst_mat_data_V_write : STD_LOGIC;
-    signal grp_xFCannyKernel_fu_76_ap_start : STD_LOGIC;
-    signal grp_xFCannyKernel_fu_76_ap_done : STD_LOGIC;
-    signal grp_xFCannyKernel_fu_76_ap_ready : STD_LOGIC;
-    signal grp_xFCannyKernel_fu_76_ap_idle : STD_LOGIC;
-    signal grp_xFCannyKernel_fu_76_ap_continue : STD_LOGIC;
-    signal grp_xFCannyKernel_fu_76_ap_start_reg : STD_LOGIC := '0';
+    signal trunc_ln262_fu_68_p1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal trunc_ln262_reg_88 : STD_LOGIC_VECTOR (15 downto 0);
+    signal trunc_ln262_1_fu_73_p1 : STD_LOGIC_VECTOR (15 downto 0);
+    signal trunc_ln262_1_reg_93 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_xFCannyKernel_fu_54_p_src_mat_data_V_read : STD_LOGIC;
+    signal grp_xFCannyKernel_fu_54_p_dst_mat_data_V_din : STD_LOGIC_VECTOR (63 downto 0);
+    signal grp_xFCannyKernel_fu_54_p_dst_mat_data_V_write : STD_LOGIC;
+    signal grp_xFCannyKernel_fu_54_ap_start : STD_LOGIC;
+    signal grp_xFCannyKernel_fu_54_ap_done : STD_LOGIC;
+    signal grp_xFCannyKernel_fu_54_ap_ready : STD_LOGIC;
+    signal grp_xFCannyKernel_fu_54_ap_idle : STD_LOGIC;
+    signal grp_xFCannyKernel_fu_54_ap_continue : STD_LOGIC;
+    signal grp_xFCannyKernel_fu_54_ap_start_reg : STD_LOGIC := '0';
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
-    signal ap_sync_grp_xFCannyKernel_fu_76_ap_ready : STD_LOGIC;
-    signal ap_sync_grp_xFCannyKernel_fu_76_ap_done : STD_LOGIC;
+    signal ap_sync_grp_xFCannyKernel_fu_54_ap_ready : STD_LOGIC;
+    signal ap_sync_grp_xFCannyKernel_fu_54_ap_done : STD_LOGIC;
     signal ap_block_state2_on_subcall_done : BOOLEAN;
-    signal ap_sync_reg_grp_xFCannyKernel_fu_76_ap_ready : STD_LOGIC := '0';
-    signal ap_sync_reg_grp_xFCannyKernel_fu_76_ap_done : STD_LOGIC := '0';
+    signal ap_sync_reg_grp_xFCannyKernel_fu_54_ap_ready : STD_LOGIC := '0';
+    signal ap_sync_reg_grp_xFCannyKernel_fu_54_ap_done : STD_LOGIC := '0';
     signal ap_NS_fsm : STD_LOGIC_VECTOR (1 downto 0);
 
     component xFCannyKernel IS
@@ -95,29 +95,29 @@ architecture behav of Canny is
 
 
 begin
-    grp_xFCannyKernel_fu_76 : component xFCannyKernel
+    grp_xFCannyKernel_fu_54 : component xFCannyKernel
     port map (
         p_src_mat_data_V_dout => p_src_mat_data_V_dout,
         p_src_mat_data_V_empty_n => p_src_mat_data_V_empty_n,
-        p_src_mat_data_V_read => grp_xFCannyKernel_fu_76_p_src_mat_data_V_read,
-        p_dst_mat_data_V_din => grp_xFCannyKernel_fu_76_p_dst_mat_data_V_din,
+        p_src_mat_data_V_read => grp_xFCannyKernel_fu_54_p_src_mat_data_V_read,
+        p_dst_mat_data_V_din => grp_xFCannyKernel_fu_54_p_dst_mat_data_V_din,
         p_dst_mat_data_V_full_n => p_dst_mat_data_V_full_n,
-        p_dst_mat_data_V_write => grp_xFCannyKernel_fu_76_p_dst_mat_data_V_write,
+        p_dst_mat_data_V_write => grp_xFCannyKernel_fu_54_p_dst_mat_data_V_write,
         p_lowthreshold => p_lowthreshold,
         p_highthreshold => p_highthreshold,
-        img_height => trunc_ln262_reg_110,
-        img_width => trunc_ln262_1_reg_115,
+        img_height => trunc_ln262_reg_88,
+        img_width => trunc_ln262_1_reg_93,
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         p_lowthreshold_ap_vld => ap_const_logic_1,
         p_highthreshold_ap_vld => ap_const_logic_1,
         img_height_ap_vld => ap_const_logic_1,
         img_width_ap_vld => ap_const_logic_1,
-        ap_start => grp_xFCannyKernel_fu_76_ap_start,
-        ap_done => grp_xFCannyKernel_fu_76_ap_done,
-        ap_ready => grp_xFCannyKernel_fu_76_ap_ready,
-        ap_idle => grp_xFCannyKernel_fu_76_ap_idle,
-        ap_continue => grp_xFCannyKernel_fu_76_ap_continue);
+        ap_start => grp_xFCannyKernel_fu_54_ap_start,
+        ap_done => grp_xFCannyKernel_fu_54_ap_done,
+        ap_ready => grp_xFCannyKernel_fu_54_ap_ready,
+        ap_idle => grp_xFCannyKernel_fu_54_ap_idle,
+        ap_continue => grp_xFCannyKernel_fu_54_ap_continue);
 
 
 
@@ -135,48 +135,48 @@ begin
     end process;
 
 
-    ap_sync_reg_grp_xFCannyKernel_fu_76_ap_done_assign_proc : process(ap_clk)
+    ap_sync_reg_grp_xFCannyKernel_fu_54_ap_done_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                ap_sync_reg_grp_xFCannyKernel_fu_76_ap_done <= ap_const_logic_0;
+                ap_sync_reg_grp_xFCannyKernel_fu_54_ap_done <= ap_const_logic_0;
             else
                 if (((ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-                    ap_sync_reg_grp_xFCannyKernel_fu_76_ap_done <= ap_const_logic_0;
-                elsif ((grp_xFCannyKernel_fu_76_ap_done = ap_const_logic_1)) then 
-                    ap_sync_reg_grp_xFCannyKernel_fu_76_ap_done <= ap_const_logic_1;
+                    ap_sync_reg_grp_xFCannyKernel_fu_54_ap_done <= ap_const_logic_0;
+                elsif ((grp_xFCannyKernel_fu_54_ap_done = ap_const_logic_1)) then 
+                    ap_sync_reg_grp_xFCannyKernel_fu_54_ap_done <= ap_const_logic_1;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    ap_sync_reg_grp_xFCannyKernel_fu_76_ap_ready_assign_proc : process(ap_clk)
+    ap_sync_reg_grp_xFCannyKernel_fu_54_ap_ready_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                ap_sync_reg_grp_xFCannyKernel_fu_76_ap_ready <= ap_const_logic_0;
+                ap_sync_reg_grp_xFCannyKernel_fu_54_ap_ready <= ap_const_logic_0;
             else
                 if (((ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-                    ap_sync_reg_grp_xFCannyKernel_fu_76_ap_ready <= ap_const_logic_0;
-                elsif ((grp_xFCannyKernel_fu_76_ap_ready = ap_const_logic_1)) then 
-                    ap_sync_reg_grp_xFCannyKernel_fu_76_ap_ready <= ap_const_logic_1;
+                    ap_sync_reg_grp_xFCannyKernel_fu_54_ap_ready <= ap_const_logic_0;
+                elsif ((grp_xFCannyKernel_fu_54_ap_ready = ap_const_logic_1)) then 
+                    ap_sync_reg_grp_xFCannyKernel_fu_54_ap_ready <= ap_const_logic_1;
                 end if; 
             end if;
         end if;
     end process;
 
 
-    grp_xFCannyKernel_fu_76_ap_start_reg_assign_proc : process(ap_clk)
+    grp_xFCannyKernel_fu_54_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_xFCannyKernel_fu_76_ap_start_reg <= ap_const_logic_0;
+                grp_xFCannyKernel_fu_54_ap_start_reg <= ap_const_logic_0;
             else
-                if ((((ap_sync_grp_xFCannyKernel_fu_76_ap_ready = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state2)) or ((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1)))) then 
-                    grp_xFCannyKernel_fu_76_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_xFCannyKernel_fu_76_ap_ready = ap_const_logic_1)) then 
-                    grp_xFCannyKernel_fu_76_ap_start_reg <= ap_const_logic_0;
+                if ((((ap_sync_grp_xFCannyKernel_fu_54_ap_ready = ap_const_logic_0) and (ap_const_logic_1 = ap_CS_fsm_state2)) or ((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1)))) then 
+                    grp_xFCannyKernel_fu_54_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_xFCannyKernel_fu_54_ap_ready = ap_const_logic_1)) then 
+                    grp_xFCannyKernel_fu_54_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
@@ -186,8 +186,8 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_start = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
-                trunc_ln262_1_reg_115 <= trunc_ln262_1_fu_95_p1;
-                trunc_ln262_reg_110 <= trunc_ln262_fu_90_p1;
+                trunc_ln262_1_reg_93 <= trunc_ln262_1_fu_73_p1;
+                trunc_ln262_reg_88 <= trunc_ln262_fu_68_p1;
             end if;
         end if;
     end process;
@@ -214,9 +214,9 @@ begin
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
 
-    ap_block_state2_on_subcall_done_assign_proc : process(ap_sync_grp_xFCannyKernel_fu_76_ap_ready, ap_sync_grp_xFCannyKernel_fu_76_ap_done)
+    ap_block_state2_on_subcall_done_assign_proc : process(ap_sync_grp_xFCannyKernel_fu_54_ap_ready, ap_sync_grp_xFCannyKernel_fu_54_ap_done)
     begin
-                ap_block_state2_on_subcall_done <= ((ap_sync_grp_xFCannyKernel_fu_76_ap_ready and ap_sync_grp_xFCannyKernel_fu_76_ap_done) = ap_const_logic_0);
+                ap_block_state2_on_subcall_done <= ((ap_sync_grp_xFCannyKernel_fu_54_ap_ready and ap_sync_grp_xFCannyKernel_fu_54_ap_done) = ap_const_logic_0);
     end process;
 
 
@@ -249,40 +249,40 @@ begin
         end if; 
     end process;
 
-    ap_sync_grp_xFCannyKernel_fu_76_ap_done <= (grp_xFCannyKernel_fu_76_ap_done or ap_sync_reg_grp_xFCannyKernel_fu_76_ap_done);
-    ap_sync_grp_xFCannyKernel_fu_76_ap_ready <= (grp_xFCannyKernel_fu_76_ap_ready or ap_sync_reg_grp_xFCannyKernel_fu_76_ap_ready);
+    ap_sync_grp_xFCannyKernel_fu_54_ap_done <= (grp_xFCannyKernel_fu_54_ap_done or ap_sync_reg_grp_xFCannyKernel_fu_54_ap_done);
+    ap_sync_grp_xFCannyKernel_fu_54_ap_ready <= (grp_xFCannyKernel_fu_54_ap_ready or ap_sync_reg_grp_xFCannyKernel_fu_54_ap_ready);
 
-    grp_xFCannyKernel_fu_76_ap_continue_assign_proc : process(ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
+    grp_xFCannyKernel_fu_54_ap_continue_assign_proc : process(ap_CS_fsm_state2, ap_block_state2_on_subcall_done)
     begin
         if (((ap_const_boolean_0 = ap_block_state2_on_subcall_done) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
-            grp_xFCannyKernel_fu_76_ap_continue <= ap_const_logic_1;
+            grp_xFCannyKernel_fu_54_ap_continue <= ap_const_logic_1;
         else 
-            grp_xFCannyKernel_fu_76_ap_continue <= ap_const_logic_0;
+            grp_xFCannyKernel_fu_54_ap_continue <= ap_const_logic_0;
         end if; 
     end process;
 
-    grp_xFCannyKernel_fu_76_ap_start <= grp_xFCannyKernel_fu_76_ap_start_reg;
-    p_dst_mat_data_V_din <= grp_xFCannyKernel_fu_76_p_dst_mat_data_V_din;
+    grp_xFCannyKernel_fu_54_ap_start <= grp_xFCannyKernel_fu_54_ap_start_reg;
+    p_dst_mat_data_V_din <= grp_xFCannyKernel_fu_54_p_dst_mat_data_V_din;
 
-    p_dst_mat_data_V_write_assign_proc : process(grp_xFCannyKernel_fu_76_p_dst_mat_data_V_write, ap_CS_fsm_state2)
+    p_dst_mat_data_V_write_assign_proc : process(grp_xFCannyKernel_fu_54_p_dst_mat_data_V_write, ap_CS_fsm_state2)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_dst_mat_data_V_write <= grp_xFCannyKernel_fu_76_p_dst_mat_data_V_write;
+            p_dst_mat_data_V_write <= grp_xFCannyKernel_fu_54_p_dst_mat_data_V_write;
         else 
             p_dst_mat_data_V_write <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    p_src_mat_data_V_read_assign_proc : process(grp_xFCannyKernel_fu_76_p_src_mat_data_V_read, ap_CS_fsm_state2)
+    p_src_mat_data_V_read_assign_proc : process(grp_xFCannyKernel_fu_54_p_src_mat_data_V_read, ap_CS_fsm_state2)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_src_mat_data_V_read <= grp_xFCannyKernel_fu_76_p_src_mat_data_V_read;
+            p_src_mat_data_V_read <= grp_xFCannyKernel_fu_54_p_src_mat_data_V_read;
         else 
             p_src_mat_data_V_read <= ap_const_logic_0;
         end if; 
     end process;
 
-    trunc_ln262_1_fu_95_p1 <= p_src_mat_cols_read(16 - 1 downto 0);
-    trunc_ln262_fu_90_p1 <= p_src_mat_rows_read(16 - 1 downto 0);
+    trunc_ln262_1_fu_73_p1 <= p_src_mat_cols_read(16 - 1 downto 0);
+    trunc_ln262_fu_68_p1 <= p_src_mat_rows_read(16 - 1 downto 0);
 end behav;

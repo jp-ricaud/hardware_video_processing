@@ -178,16 +178,16 @@ architecture behav of xFCannyKernel is
     signal xFSuppression3x3_U0_imgheight_out_write : STD_LOGIC;
     signal xFSuppression3x3_U0_imgwidth_out_din : STD_LOGIC_VECTOR (15 downto 0);
     signal xFSuppression3x3_U0_imgwidth_out_write : STD_LOGIC;
-    signal xFPackNMS1096_U0_ap_start : STD_LOGIC;
-    signal xFPackNMS1096_U0_ap_done : STD_LOGIC;
-    signal xFPackNMS1096_U0_ap_continue : STD_LOGIC;
-    signal xFPackNMS1096_U0_ap_idle : STD_LOGIC;
-    signal xFPackNMS1096_U0_ap_ready : STD_LOGIC;
-    signal xFPackNMS1096_U0_p_src_mat_data_V_read : STD_LOGIC;
-    signal xFPackNMS1096_U0_p_dst_mat_data_V_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal xFPackNMS1096_U0_p_dst_mat_data_V_write : STD_LOGIC;
-    signal xFPackNMS1096_U0_imgheight_read : STD_LOGIC;
-    signal xFPackNMS1096_U0_imgwidth_read : STD_LOGIC;
+    signal xFPackNMS251_U0_ap_start : STD_LOGIC;
+    signal xFPackNMS251_U0_ap_done : STD_LOGIC;
+    signal xFPackNMS251_U0_ap_continue : STD_LOGIC;
+    signal xFPackNMS251_U0_ap_idle : STD_LOGIC;
+    signal xFPackNMS251_U0_ap_ready : STD_LOGIC;
+    signal xFPackNMS251_U0_p_src_mat_data_V_read : STD_LOGIC;
+    signal xFPackNMS251_U0_p_dst_mat_data_V_din : STD_LOGIC_VECTOR (63 downto 0);
+    signal xFPackNMS251_U0_p_dst_mat_data_V_write : STD_LOGIC;
+    signal xFPackNMS251_U0_imgheight_read : STD_LOGIC;
+    signal xFPackNMS251_U0_imgwidth_read : STD_LOGIC;
     signal ap_sync_continue : STD_LOGIC;
     signal p_lowthreshold_c_full_n : STD_LOGIC;
     signal p_lowthreshold_c_dout : STD_LOGIC_VECTOR (7 downto 0);
@@ -309,12 +309,12 @@ architecture behav of xFCannyKernel is
     signal xFMagnitudeKernel_U0_start_write : STD_LOGIC;
     signal xFAngleKernel_U0_start_full_n : STD_LOGIC;
     signal xFAngleKernel_U0_start_write : STD_LOGIC;
-    signal start_for_xFPackNMS1096_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_xFPackNMS1096_U0_full_n : STD_LOGIC;
-    signal start_for_xFPackNMS1096_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_xFPackNMS1096_U0_empty_n : STD_LOGIC;
-    signal xFPackNMS1096_U0_start_full_n : STD_LOGIC;
-    signal xFPackNMS1096_U0_start_write : STD_LOGIC;
+    signal start_for_xFPackNMS251_U0_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_xFPackNMS251_U0_full_n : STD_LOGIC;
+    signal start_for_xFPackNMS251_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_xFPackNMS251_U0_empty_n : STD_LOGIC;
+    signal xFPackNMS251_U0_start_full_n : STD_LOGIC;
+    signal xFPackNMS251_U0_start_write : STD_LOGIC;
 
     component xFCannyKernel_entry2 IS
     port (
@@ -596,7 +596,7 @@ architecture behav of xFCannyKernel is
     end component;
 
 
-    component xFPackNMS1096 IS
+    component xFPackNMS251 IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -710,7 +710,7 @@ architecture behav of xFCannyKernel is
     end component;
 
 
-    component fifo_w14_d5760_A IS
+    component fifo_w14_d12288_A IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -740,7 +740,7 @@ architecture behav of xFCannyKernel is
     end component;
 
 
-    component start_for_xFCannyncg IS
+    component start_for_xFCannyHfu IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -755,7 +755,7 @@ architecture behav of xFCannyKernel is
     end component;
 
 
-    component start_for_xFSupprocq IS
+    component start_for_xFSupprIfE IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -770,7 +770,7 @@ architecture behav of xFCannyKernel is
     end component;
 
 
-    component start_for_xFSobelpcA IS
+    component start_for_xFSobelJfO IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -785,7 +785,7 @@ architecture behav of xFCannyKernel is
     end component;
 
 
-    component start_for_xFDupliqcK IS
+    component start_for_xFDupliKfY IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -800,7 +800,7 @@ architecture behav of xFCannyKernel is
     end component;
 
 
-    component start_for_xFAnglercU IS
+    component start_for_xFAngleLf8 IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -815,7 +815,7 @@ architecture behav of xFCannyKernel is
     end component;
 
 
-    component start_for_xFMagnisc4 IS
+    component start_for_xFMagniMgi IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -830,7 +830,7 @@ architecture behav of xFCannyKernel is
     end component;
 
 
-    component start_for_xFPackNtde IS
+    component start_for_xFPackNNgs IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -1076,7 +1076,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst,
         ap_start => xFSuppression3x3_U0_ap_start,
-        start_full_n => start_for_xFPackNMS1096_U0_full_n,
+        start_full_n => start_for_xFPackNMS251_U0_full_n,
         ap_done => xFSuppression3x3_U0_ap_done,
         ap_continue => xFSuppression3x3_U0_ap_continue,
         ap_idle => xFSuppression3x3_U0_ap_idle,
@@ -1111,27 +1111,27 @@ begin
         imgwidth_out_full_n => img_width_c30_full_n,
         imgwidth_out_write => xFSuppression3x3_U0_imgwidth_out_write);
 
-    xFPackNMS1096_U0 : component xFPackNMS1096
+    xFPackNMS251_U0 : component xFPackNMS251
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => xFPackNMS1096_U0_ap_start,
-        ap_done => xFPackNMS1096_U0_ap_done,
-        ap_continue => xFPackNMS1096_U0_ap_continue,
-        ap_idle => xFPackNMS1096_U0_ap_idle,
-        ap_ready => xFPackNMS1096_U0_ap_ready,
+        ap_start => xFPackNMS251_U0_ap_start,
+        ap_done => xFPackNMS251_U0_ap_done,
+        ap_continue => xFPackNMS251_U0_ap_continue,
+        ap_idle => xFPackNMS251_U0_ap_idle,
+        ap_ready => xFPackNMS251_U0_ap_ready,
         p_src_mat_data_V_dout => nms_mat_data_V_dout,
         p_src_mat_data_V_empty_n => nms_mat_data_V_empty_n,
-        p_src_mat_data_V_read => xFPackNMS1096_U0_p_src_mat_data_V_read,
-        p_dst_mat_data_V_din => xFPackNMS1096_U0_p_dst_mat_data_V_din,
+        p_src_mat_data_V_read => xFPackNMS251_U0_p_src_mat_data_V_read,
+        p_dst_mat_data_V_din => xFPackNMS251_U0_p_dst_mat_data_V_din,
         p_dst_mat_data_V_full_n => p_dst_mat_data_V_full_n,
-        p_dst_mat_data_V_write => xFPackNMS1096_U0_p_dst_mat_data_V_write,
+        p_dst_mat_data_V_write => xFPackNMS251_U0_p_dst_mat_data_V_write,
         imgheight_dout => img_height_c29_dout,
         imgheight_empty_n => img_height_c29_empty_n,
-        imgheight_read => xFPackNMS1096_U0_imgheight_read,
+        imgheight_read => xFPackNMS251_U0_imgheight_read,
         imgwidth_dout => img_width_c30_dout,
         imgwidth_empty_n => img_width_c30_empty_n,
-        imgwidth_read => xFPackNMS1096_U0_imgwidth_read);
+        imgwidth_read => xFPackNMS251_U0_imgwidth_read);
 
     p_lowthreshold_c_U : component fifo_w8_d6_A
     port map (
@@ -1432,7 +1432,7 @@ begin
         if_empty_n => height_c_empty_n,
         if_read => xFMagnitudeKernel_U0_imgheight_read);
 
-    magnitude_mat_data_V_U : component fifo_w14_d5760_A
+    magnitude_mat_data_V_U : component fifo_w14_d12288_A
     port map (
         clk => ap_clk,
         reset => ap_rst,
@@ -1469,7 +1469,7 @@ begin
         if_write => xFSuppression3x3_U0_p_dst_mat_data_V_write,
         if_dout => nms_mat_data_V_dout,
         if_empty_n => nms_mat_data_V_empty_n,
-        if_read => xFPackNMS1096_U0_p_src_mat_data_V_read);
+        if_read => xFPackNMS251_U0_p_src_mat_data_V_read);
 
     img_height_c29_U : component fifo_w16_d2_A
     port map (
@@ -1482,7 +1482,7 @@ begin
         if_write => xFSuppression3x3_U0_imgheight_out_write,
         if_dout => img_height_c29_dout,
         if_empty_n => img_height_c29_empty_n,
-        if_read => xFPackNMS1096_U0_imgheight_read);
+        if_read => xFPackNMS251_U0_imgheight_read);
 
     img_width_c30_U : component fifo_w16_d2_A
     port map (
@@ -1495,9 +1495,9 @@ begin
         if_write => xFSuppression3x3_U0_imgwidth_out_write,
         if_dout => img_width_c30_dout,
         if_empty_n => img_width_c30_empty_n,
-        if_read => xFPackNMS1096_U0_imgwidth_read);
+        if_read => xFPackNMS251_U0_imgwidth_read);
 
-    start_for_xFCannyncg_U : component start_for_xFCannyncg
+    start_for_xFCannyHfu_U : component start_for_xFCannyHfu
     port map (
         clk => ap_clk,
         reset => ap_rst,
@@ -1510,7 +1510,7 @@ begin
         if_empty_n => start_for_xFCannyKernel_Block_U0_empty_n,
         if_read => xFCannyKernel_Block_U0_ap_ready);
 
-    start_for_xFSupprocq_U : component start_for_xFSupprocq
+    start_for_xFSupprIfE_U : component start_for_xFSupprIfE
     port map (
         clk => ap_clk,
         reset => ap_rst,
@@ -1523,7 +1523,7 @@ begin
         if_empty_n => start_for_xFSuppression3x3_U0_empty_n,
         if_read => xFSuppression3x3_U0_ap_ready);
 
-    start_for_xFSobelpcA_U : component start_for_xFSobelpcA
+    start_for_xFSobelJfO_U : component start_for_xFSobelJfO
     port map (
         clk => ap_clk,
         reset => ap_rst,
@@ -1536,7 +1536,7 @@ begin
         if_empty_n => start_for_xFSobel_U0_empty_n,
         if_read => xFSobel_U0_ap_ready);
 
-    start_for_xFDupliqcK_U : component start_for_xFDupliqcK
+    start_for_xFDupliKfY_U : component start_for_xFDupliKfY
     port map (
         clk => ap_clk,
         reset => ap_rst,
@@ -1549,7 +1549,7 @@ begin
         if_empty_n => start_for_xFDuplicate_rows_U0_empty_n,
         if_read => xFDuplicate_rows_U0_ap_ready);
 
-    start_for_xFAnglercU_U : component start_for_xFAnglercU
+    start_for_xFAngleLf8_U : component start_for_xFAngleLf8
     port map (
         clk => ap_clk,
         reset => ap_rst,
@@ -1562,7 +1562,7 @@ begin
         if_empty_n => start_for_xFAngleKernel_U0_empty_n,
         if_read => xFAngleKernel_U0_ap_ready);
 
-    start_for_xFMagnisc4_U : component start_for_xFMagnisc4
+    start_for_xFMagniMgi_U : component start_for_xFMagniMgi
     port map (
         clk => ap_clk,
         reset => ap_rst,
@@ -1575,18 +1575,18 @@ begin
         if_empty_n => start_for_xFMagnitudeKernel_U0_empty_n,
         if_read => xFMagnitudeKernel_U0_ap_ready);
 
-    start_for_xFPackNtde_U : component start_for_xFPackNtde
+    start_for_xFPackNNgs_U : component start_for_xFPackNNgs
     port map (
         clk => ap_clk,
         reset => ap_rst,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => start_for_xFPackNMS1096_U0_din,
-        if_full_n => start_for_xFPackNMS1096_U0_full_n,
+        if_din => start_for_xFPackNMS251_U0_din,
+        if_full_n => start_for_xFPackNMS251_U0_full_n,
         if_write => xFSuppression3x3_U0_start_write,
-        if_dout => start_for_xFPackNMS1096_U0_dout,
-        if_empty_n => start_for_xFPackNMS1096_U0_empty_n,
-        if_read => xFPackNMS1096_U0_ap_ready);
+        if_dout => start_for_xFPackNMS251_U0_dout,
+        if_empty_n => start_for_xFPackNMS251_U0_empty_n,
+        if_read => xFPackNMS251_U0_ap_ready);
 
 
 
@@ -1645,22 +1645,22 @@ begin
             end if; 
         end if;
     end process;
-    ap_done <= xFPackNMS1096_U0_ap_done;
-    ap_idle <= (xFSuppression3x3_U0_ap_idle and xFSobel_U0_ap_idle and xFPackNMS1096_U0_ap_idle and xFMagnitudeKernel_U0_ap_idle and xFDuplicate_rows_U0_ap_idle and xFCannyKernel_entry2_U0_ap_idle and xFCannyKernel_Block_U0_ap_idle and xFAverageGaussianMas_U0_ap_idle and xFAngleKernel_U0_ap_idle);
+    ap_done <= xFPackNMS251_U0_ap_done;
+    ap_idle <= (xFSuppression3x3_U0_ap_idle and xFSobel_U0_ap_idle and xFPackNMS251_U0_ap_idle and xFMagnitudeKernel_U0_ap_idle and xFDuplicate_rows_U0_ap_idle and xFCannyKernel_entry2_U0_ap_idle and xFCannyKernel_Block_U0_ap_idle and xFAverageGaussianMas_U0_ap_idle and xFAngleKernel_U0_ap_idle);
     ap_ready <= ap_sync_ready;
     ap_sync_continue <= ap_continue;
-    ap_sync_done <= xFPackNMS1096_U0_ap_done;
+    ap_sync_done <= xFPackNMS251_U0_ap_done;
     ap_sync_ready <= (ap_sync_xFCannyKernel_entry2_U0_ap_ready and ap_sync_xFAverageGaussianMas_U0_ap_ready);
     ap_sync_xFAverageGaussianMas_U0_ap_ready <= (xFAverageGaussianMas_U0_ap_ready or ap_sync_reg_xFAverageGaussianMas_U0_ap_ready);
     ap_sync_xFCannyKernel_entry2_U0_ap_ready <= (xFCannyKernel_entry2_U0_ap_ready or ap_sync_reg_xFCannyKernel_entry2_U0_ap_ready);
-    p_dst_mat_data_V_din <= xFPackNMS1096_U0_p_dst_mat_data_V_din;
-    p_dst_mat_data_V_write <= xFPackNMS1096_U0_p_dst_mat_data_V_write;
+    p_dst_mat_data_V_din <= xFPackNMS251_U0_p_dst_mat_data_V_din;
+    p_dst_mat_data_V_write <= xFPackNMS251_U0_p_dst_mat_data_V_write;
     p_src_mat_data_V_read <= xFAverageGaussianMas_U0_p_src_mat_data_V_read;
     start_for_xFAngleKernel_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_xFCannyKernel_Block_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_xFDuplicate_rows_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_xFMagnitudeKernel_U0_din <= (0=>ap_const_logic_1, others=>'-');
-    start_for_xFPackNMS1096_U0_din <= (0=>ap_const_logic_1, others=>'-');
+    start_for_xFPackNMS251_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_xFSobel_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_xFSuppression3x3_U0_din <= (0=>ap_const_logic_1, others=>'-');
     xFAngleKernel_U0_ap_continue <= ap_const_logic_1;
@@ -1680,10 +1680,10 @@ begin
     xFMagnitudeKernel_U0_ap_start <= start_for_xFMagnitudeKernel_U0_empty_n;
     xFMagnitudeKernel_U0_start_full_n <= ap_const_logic_1;
     xFMagnitudeKernel_U0_start_write <= ap_const_logic_0;
-    xFPackNMS1096_U0_ap_continue <= ap_continue;
-    xFPackNMS1096_U0_ap_start <= start_for_xFPackNMS1096_U0_empty_n;
-    xFPackNMS1096_U0_start_full_n <= ap_const_logic_1;
-    xFPackNMS1096_U0_start_write <= ap_const_logic_0;
+    xFPackNMS251_U0_ap_continue <= ap_continue;
+    xFPackNMS251_U0_ap_start <= start_for_xFPackNMS251_U0_empty_n;
+    xFPackNMS251_U0_start_full_n <= ap_const_logic_1;
+    xFPackNMS251_U0_start_write <= ap_const_logic_0;
     xFSobel_U0_ap_continue <= ap_const_logic_1;
     xFSobel_U0_ap_start <= start_for_xFSobel_U0_empty_n;
     xFSuppression3x3_U0_ap_continue <= ap_const_logic_1;

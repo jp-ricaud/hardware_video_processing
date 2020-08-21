@@ -223,8 +223,8 @@ begin
       p_dst_TDEST => open,
 
       -- xfopencv canny kernel config
-      height         => std_logic_vector(to_unsigned(1920, 32)),
-      width          => std_logic_vector(to_unsigned(1080, 32)),
+      height         => std_logic_vector(to_unsigned(4096, 32)),
+      width          => std_logic_vector(to_unsigned(2168, 32)),
       low_threshold  => std_logic_vector(to_unsigned(30, 8)),
       high_threshold => std_logic_vector(to_unsigned(64, 8))
    );

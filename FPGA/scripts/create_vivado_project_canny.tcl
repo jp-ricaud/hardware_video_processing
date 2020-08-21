@@ -104,12 +104,13 @@ proc customlogicCreateProject {} {
     "[file normalize "$customlogic_dir/04_ref_design/canny/Block_Mat_exit15_pro.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/Canny.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/PixelProcessNew_1_s.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/TopDown_20_6_1024_s.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/TopDown.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/canny_accel.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/canny_accel_iBuffyd2.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/canny_accel_iBuffVhK.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/canny_accel_iBuffXh4.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/canny_accel_oBuff_V.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/fifo_w11_d2_A.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/fifo_w14_d5760_A.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/fifo_w14_d12288_A.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/fifo_w16_d2_A.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/fifo_w16_d2_A_x.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/fifo_w16_d3_A.vhd"]"\
@@ -126,43 +127,75 @@ proc customlogicCreateProject {} {
     "[file normalize "$customlogic_dir/04_ref_design/canny/fifo_w8_d3_A.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/fifo_w8_d6_A.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_VhK.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_WhU.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_Xh4.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_g8j.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_wdI.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_xdS.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_eOg.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_fYi.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_mb6.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_udo.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_vdy.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_udivShg.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_udivThq.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_uremUhA.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_canny_aYie.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFAnglercU.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFCannyncg.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFDupliqcK.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFMagnisc4.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFPackNtde.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFSobelpcA.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFSupprocq.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xfMat2AZio.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_Aem.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_OgC.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_PgM.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_Rg6.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_b5t.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_bkb.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_cgu.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_fYi.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_g8j.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_hbi.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_jbC.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_kbM.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_lbW.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_mb6.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_ncg.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_ocq.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_pcA.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_udo.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_add_yd2.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_lshrb9t.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_lshrcau.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_Thq.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_UhA.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_cbu.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_ccu.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_cdu.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mul_zec.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_Gfk.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_QgW.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_Shg.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_ibs.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_mux_sc4.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_sub_b8t.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_sub_ceu.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_sub_cfu.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_sub_qcK.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_sub_rcU.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_sub_tde.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_sub_vdy.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_sub_wdI.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_sub_xdS.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_udivb4t.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_udivb6t.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/ip_accel_app_uremb7t.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_canny_achv.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFAngleLf8.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFCannyHfu.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFDupliKfY.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFMagniMgi.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFPackNNgs.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFSobelJfO.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xFSupprIfE.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/start_for_xfMat2Aciv.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFAngleKernel.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFAverageGaussianMas.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/xFAverageGaussianbkb.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/xFAverageGaussiancud.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFCannyKernel.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFCannyKernel_Block_s.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFCannyKernel_entry2.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFDuplicate_rows.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFMagnitudeKernel.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/xFPackNMS1096.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/xFPackNMS251.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFSobel.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFSobel3x3.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xFSuppression3x3.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/xFSuppression3x3_hbi.vhd"]"\
-    "[file normalize "$customlogic_dir/04_ref_design/canny/xFSuppression3x3_jbC.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/xFSuppression3x3_Bew.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/xFSuppression3x3_CeG.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/xFSuppression3x3_DeQ.vhd"]"\
+    "[file normalize "$customlogic_dir/04_ref_design/canny/xFSuppression3x3_Ffa.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xfExtractPixels.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xfExtractPixels_1.vhd"]"\
     "[file normalize "$customlogic_dir/04_ref_design/canny/xfMat2AXIvideo.vhd"]"\

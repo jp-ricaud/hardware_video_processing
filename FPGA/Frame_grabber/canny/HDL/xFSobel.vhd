@@ -67,19 +67,19 @@ architecture behav of xFSobel is
     signal imgwidth_blk_n : STD_LOGIC;
     signal imgheight_out_blk_n : STD_LOGIC;
     signal imgwidth_out_blk_n : STD_LOGIC;
-    signal imgheight_read_reg_150 : STD_LOGIC_VECTOR (15 downto 0);
+    signal imgheight_read_reg_76 : STD_LOGIC_VECTOR (15 downto 0);
     signal ap_block_state1 : BOOLEAN;
-    signal imgwidth_read_reg_155 : STD_LOGIC_VECTOR (15 downto 0);
-    signal grp_xFSobel3x3_fu_136_ap_start : STD_LOGIC;
-    signal grp_xFSobel3x3_fu_136_ap_done : STD_LOGIC;
-    signal grp_xFSobel3x3_fu_136_ap_idle : STD_LOGIC;
-    signal grp_xFSobel3x3_fu_136_ap_ready : STD_LOGIC;
-    signal grp_xFSobel3x3_fu_136_p_src_mat_data_V_read : STD_LOGIC;
-    signal grp_xFSobel3x3_fu_136_p_out_mat_data_V_din : STD_LOGIC_VECTOR (10 downto 0);
-    signal grp_xFSobel3x3_fu_136_p_out_mat_data_V_write : STD_LOGIC;
-    signal grp_xFSobel3x3_fu_136_p_out_mat1_data_V_din : STD_LOGIC_VECTOR (10 downto 0);
-    signal grp_xFSobel3x3_fu_136_p_out_mat1_data_V_write : STD_LOGIC;
-    signal grp_xFSobel3x3_fu_136_ap_start_reg : STD_LOGIC := '0';
+    signal imgwidth_read_reg_81 : STD_LOGIC_VECTOR (15 downto 0);
+    signal grp_xFSobel3x3_fu_62_ap_start : STD_LOGIC;
+    signal grp_xFSobel3x3_fu_62_ap_done : STD_LOGIC;
+    signal grp_xFSobel3x3_fu_62_ap_idle : STD_LOGIC;
+    signal grp_xFSobel3x3_fu_62_ap_ready : STD_LOGIC;
+    signal grp_xFSobel3x3_fu_62_p_src_mat_data_V_read : STD_LOGIC;
+    signal grp_xFSobel3x3_fu_62_p_out_mat_data_V_din : STD_LOGIC_VECTOR (10 downto 0);
+    signal grp_xFSobel3x3_fu_62_p_out_mat_data_V_write : STD_LOGIC;
+    signal grp_xFSobel3x3_fu_62_p_out_mat1_data_V_din : STD_LOGIC_VECTOR (10 downto 0);
+    signal grp_xFSobel3x3_fu_62_p_out_mat1_data_V_write : STD_LOGIC;
+    signal grp_xFSobel3x3_fu_62_ap_start_reg : STD_LOGIC := '0';
     signal ap_block_state1_ignore_call11 : BOOLEAN;
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
@@ -109,25 +109,25 @@ architecture behav of xFSobel is
 
 
 begin
-    grp_xFSobel3x3_fu_136 : component xFSobel3x3
+    grp_xFSobel3x3_fu_62 : component xFSobel3x3
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
-        ap_start => grp_xFSobel3x3_fu_136_ap_start,
-        ap_done => grp_xFSobel3x3_fu_136_ap_done,
-        ap_idle => grp_xFSobel3x3_fu_136_ap_idle,
-        ap_ready => grp_xFSobel3x3_fu_136_ap_ready,
+        ap_start => grp_xFSobel3x3_fu_62_ap_start,
+        ap_done => grp_xFSobel3x3_fu_62_ap_done,
+        ap_idle => grp_xFSobel3x3_fu_62_ap_idle,
+        ap_ready => grp_xFSobel3x3_fu_62_ap_ready,
         p_src_mat_data_V_dout => p_src_data_V_dout,
         p_src_mat_data_V_empty_n => p_src_data_V_empty_n,
-        p_src_mat_data_V_read => grp_xFSobel3x3_fu_136_p_src_mat_data_V_read,
-        p_out_mat_data_V_din => grp_xFSobel3x3_fu_136_p_out_mat_data_V_din,
+        p_src_mat_data_V_read => grp_xFSobel3x3_fu_62_p_src_mat_data_V_read,
+        p_out_mat_data_V_din => grp_xFSobel3x3_fu_62_p_out_mat_data_V_din,
         p_out_mat_data_V_full_n => p_dst_data_V_full_n,
-        p_out_mat_data_V_write => grp_xFSobel3x3_fu_136_p_out_mat_data_V_write,
-        p_out_mat1_data_V_din => grp_xFSobel3x3_fu_136_p_out_mat1_data_V_din,
+        p_out_mat_data_V_write => grp_xFSobel3x3_fu_62_p_out_mat_data_V_write,
+        p_out_mat1_data_V_din => grp_xFSobel3x3_fu_62_p_out_mat1_data_V_din,
         p_out_mat1_data_V_full_n => p_dst1_data_V_full_n,
-        p_out_mat1_data_V_write => grp_xFSobel3x3_fu_136_p_out_mat1_data_V_write,
-        img_height => imgheight_read_reg_150,
-        img_width => imgwidth_read_reg_155);
+        p_out_mat1_data_V_write => grp_xFSobel3x3_fu_62_p_out_mat1_data_V_write,
+        img_height => imgheight_read_reg_76,
+        img_width => imgwidth_read_reg_81);
 
 
 
@@ -153,7 +153,7 @@ begin
             else
                 if ((ap_continue = ap_const_logic_1)) then 
                     ap_done_reg <= ap_const_logic_0;
-                elsif (((grp_xFSobel3x3_fu_136_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+                elsif (((grp_xFSobel3x3_fu_62_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
                     ap_done_reg <= ap_const_logic_1;
                 end if; 
             end if;
@@ -161,16 +161,16 @@ begin
     end process;
 
 
-    grp_xFSobel3x3_fu_136_ap_start_reg_assign_proc : process(ap_clk)
+    grp_xFSobel3x3_fu_62_ap_start_reg_assign_proc : process(ap_clk)
     begin
         if (ap_clk'event and ap_clk =  '1') then
             if (ap_rst = '1') then
-                grp_xFSobel3x3_fu_136_ap_start_reg <= ap_const_logic_0;
+                grp_xFSobel3x3_fu_62_ap_start_reg <= ap_const_logic_0;
             else
                 if ((not(((real_start = ap_const_logic_0) or (imgwidth_out_full_n = ap_const_logic_0) or (imgheight_out_full_n = ap_const_logic_0) or (imgwidth_empty_n = ap_const_logic_0) or (imgheight_empty_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-                    grp_xFSobel3x3_fu_136_ap_start_reg <= ap_const_logic_1;
-                elsif ((grp_xFSobel3x3_fu_136_ap_ready = ap_const_logic_1)) then 
-                    grp_xFSobel3x3_fu_136_ap_start_reg <= ap_const_logic_0;
+                    grp_xFSobel3x3_fu_62_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_xFSobel3x3_fu_62_ap_ready = ap_const_logic_1)) then 
+                    grp_xFSobel3x3_fu_62_ap_start_reg <= ap_const_logic_0;
                 end if; 
             end if;
         end if;
@@ -196,13 +196,13 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((not(((real_start = ap_const_logic_0) or (imgwidth_out_full_n = ap_const_logic_0) or (imgheight_out_full_n = ap_const_logic_0) or (imgwidth_empty_n = ap_const_logic_0) or (imgheight_empty_n = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then
-                imgheight_read_reg_150 <= imgheight_dout;
-                imgwidth_read_reg_155 <= imgwidth_dout;
+                imgheight_read_reg_76 <= imgheight_dout;
+                imgwidth_read_reg_81 <= imgwidth_dout;
             end if;
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (real_start, ap_done_reg, ap_CS_fsm, ap_CS_fsm_state1, imgheight_empty_n, imgwidth_empty_n, imgheight_out_full_n, imgwidth_out_full_n, grp_xFSobel3x3_fu_136_ap_done, ap_CS_fsm_state2)
+    ap_NS_fsm_assign_proc : process (real_start, ap_done_reg, ap_CS_fsm, ap_CS_fsm_state1, imgheight_empty_n, imgwidth_empty_n, imgheight_out_full_n, imgwidth_out_full_n, grp_xFSobel3x3_fu_62_ap_done, ap_CS_fsm_state2)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -212,7 +212,7 @@ begin
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 end if;
             when ap_ST_fsm_state2 => 
-                if (((grp_xFSobel3x3_fu_136_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then
+                if (((grp_xFSobel3x3_fu_62_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state2;
@@ -236,9 +236,9 @@ begin
     end process;
 
 
-    ap_done_assign_proc : process(ap_done_reg, grp_xFSobel3x3_fu_136_ap_done, ap_CS_fsm_state2)
+    ap_done_assign_proc : process(ap_done_reg, grp_xFSobel3x3_fu_62_ap_done, ap_CS_fsm_state2)
     begin
-        if (((grp_xFSobel3x3_fu_136_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+        if (((grp_xFSobel3x3_fu_62_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_done_reg;
@@ -256,7 +256,7 @@ begin
     end process;
 
     ap_ready <= internal_ap_ready;
-    grp_xFSobel3x3_fu_136_ap_start <= grp_xFSobel3x3_fu_136_ap_start_reg;
+    grp_xFSobel3x3_fu_62_ap_start <= grp_xFSobel3x3_fu_62_ap_start_reg;
 
     imgheight_blk_n_assign_proc : process(real_start, ap_done_reg, ap_CS_fsm_state1, imgheight_empty_n)
     begin
@@ -340,42 +340,42 @@ begin
     end process;
 
 
-    internal_ap_ready_assign_proc : process(grp_xFSobel3x3_fu_136_ap_done, ap_CS_fsm_state2)
+    internal_ap_ready_assign_proc : process(grp_xFSobel3x3_fu_62_ap_done, ap_CS_fsm_state2)
     begin
-        if (((grp_xFSobel3x3_fu_136_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+        if (((grp_xFSobel3x3_fu_62_ap_done = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
             internal_ap_ready <= ap_const_logic_1;
         else 
             internal_ap_ready <= ap_const_logic_0;
         end if; 
     end process;
 
-    p_dst1_data_V_din <= grp_xFSobel3x3_fu_136_p_out_mat1_data_V_din;
+    p_dst1_data_V_din <= grp_xFSobel3x3_fu_62_p_out_mat1_data_V_din;
 
-    p_dst1_data_V_write_assign_proc : process(grp_xFSobel3x3_fu_136_p_out_mat1_data_V_write, ap_CS_fsm_state2)
+    p_dst1_data_V_write_assign_proc : process(grp_xFSobel3x3_fu_62_p_out_mat1_data_V_write, ap_CS_fsm_state2)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_dst1_data_V_write <= grp_xFSobel3x3_fu_136_p_out_mat1_data_V_write;
+            p_dst1_data_V_write <= grp_xFSobel3x3_fu_62_p_out_mat1_data_V_write;
         else 
             p_dst1_data_V_write <= ap_const_logic_0;
         end if; 
     end process;
 
-    p_dst_data_V_din <= grp_xFSobel3x3_fu_136_p_out_mat_data_V_din;
+    p_dst_data_V_din <= grp_xFSobel3x3_fu_62_p_out_mat_data_V_din;
 
-    p_dst_data_V_write_assign_proc : process(grp_xFSobel3x3_fu_136_p_out_mat_data_V_write, ap_CS_fsm_state2)
+    p_dst_data_V_write_assign_proc : process(grp_xFSobel3x3_fu_62_p_out_mat_data_V_write, ap_CS_fsm_state2)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_dst_data_V_write <= grp_xFSobel3x3_fu_136_p_out_mat_data_V_write;
+            p_dst_data_V_write <= grp_xFSobel3x3_fu_62_p_out_mat_data_V_write;
         else 
             p_dst_data_V_write <= ap_const_logic_0;
         end if; 
     end process;
 
 
-    p_src_data_V_read_assign_proc : process(grp_xFSobel3x3_fu_136_p_src_mat_data_V_read, ap_CS_fsm_state2)
+    p_src_data_V_read_assign_proc : process(grp_xFSobel3x3_fu_62_p_src_mat_data_V_read, ap_CS_fsm_state2)
     begin
         if ((ap_const_logic_1 = ap_CS_fsm_state2)) then 
-            p_src_data_V_read <= grp_xFSobel3x3_fu_136_p_src_mat_data_V_read;
+            p_src_data_V_read <= grp_xFSobel3x3_fu_62_p_src_mat_data_V_read;
         else 
             p_src_data_V_read <= ap_const_logic_0;
         end if; 
